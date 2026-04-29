@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sohan Rajesh Nale | Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        .nav {
+            display: flex;
+            justify-content: center;
+            background: rgba(18, 18, 18, 0.9);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #333;
+        }
+
+        .nav button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background: transparent;
+            color: #bbb;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav button:hover {
+            color: white;
+            border-color: #4da6ff;
+        }
+
+        /* CONTENT & CENTERING */
+        .content {
+            display: none;
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .active {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center;
+        }
+
+        /* HOME PAGE / HERO */
+        .hero {
+            min-height: calc(100vh - 70px);
+            background-color: #121212;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 80px);
+            margin-bottom: 0;
+            color: white;
+            letter-spacing: -2px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: #4da6ff;
+            margin-top: 10px;
+            font-weight: 300;
+            max-width: 600px;
+        }
+
+        /* SECTION STYLING */
+        h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #aaa;
+            text-align: center;
+            max-width: 750px;
+        }
+
+        /* PROJECT GRID */
+        .project-card {
+            background: #1e1e1e;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            width: 100%;
+            text-align: left;
+        }
+
+        .project-card h3 {
+            margin: 0;
+            color: #4da6ff;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: #999;
+        }
+
+        /* RESUME BUTTON */
+        .cta-btn {
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: #4da6ff;
+            color: #121212 !important;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #7ec2ff;
+            transform: scale(1.05);
+        }
+
+        .skills-container {
+            margin-top: 35px; 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 30px;
+        }
+
+        .skill-item b {
+            color: #4da6ff;
+        }
+
+        a { color: #4da6ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="nav">
+    <button onclick="showTab('home')">Home</button>
+    <button onclick="showTab('about')">About</button>
+    <button onclick="showTab('projects')">Projects</button>
+    <button onclick="showTab('contact')">Contact</button>
+</div>
+
+<div id="home" class="hero content active">
+    <h1>Sohan Nale</h1>
+    <p class="subtitle">Future Electronics Engineer specializing in Embedded Systems and IoT Solutions.</p>
+    <p style="max-width: 500px; color: #888;">Exploring the intersection of hardware and software to build the next generation of smart devices.</p>
+</div>
+
+<div id="about" class="content">
+    <h2>Turning Ideas into Hardware</h2>
+    <p class="about-text">
+        I am an Electronics and Telecommunication Engineering student with a passion for physical computing and hardware innovation. 
+        I focus on bridging the gap between abstract logic and tangible hardware through embedded systems and circuit design.
+    </p>
+    
+    <p class="about-text" style="margin-top: 15px;">
+        Currently, I am building my proficiency in microcontrollers and programming to solve complex engineering challenges. 
+        Whether it's simulating circuits in Proteus or developing IoT systems with ESP32 and Arduino, I thrive on creating reliable hardware solutions.
+    </p>
+
+    <div style="margin-top: 10px;">
+        <a href="https://drive.google.com/file/d/1M7vM88KBSl25Bqe6lRIIroJo8MWIdKm3/view?usp=drivesdk" target="_blank" class="cta-btn">
+            My Resume
+        </a>
+    </div>
+
+    <div class="skills-container">
+        <div class="skill-item">
+            <b>Design Tools</b> <br>
+            Proteus, KiCAD, NI Multisim
+        </div>
+        <div class="skill-item">
+            <b>Development</b> <br>
+            Python, C Language, HTML/CSS/JS
+        </div>
+        <div class="skill-item">
+            <b>Hardware</b> <br>
+            ESP32, Arduino, Raspberry Pi
+        </div>
+    </div>
+</div>
+
+<div id="projects" class="content">
+    <h2>Selected Projects</h2>
+    
+    <div class="project-card">
+        <h3>Gesture-Controlled System Attachment</h3>
+        <p>Engineered a transmitter utilizing the ESP32 microcontroller and motion-tracking logic to interpret hand gestures and translate them into wireless control signals.</p>
+    </div>
+
+    <div class="project-card">
+        <h3>Rain-Sensing Automation System</h3>
+        <p>Developed an automated system using Arduino and moisture sensors to trigger mechanical responses (DC motor) upon detecting rainfall.</p>
+    </div>
+
+    <div class="project-card">
+        <h3>Intelligent Motion Sensor Alarm System</h3>
+        <p>Designed a security system using PIR sensors and microcontrollers for real-time motion detection and automated alert triggers.</p>
+    </div>
+
+    <div class="project-card">
+        <h3>Hostel Entry/Exit Management Application</h3>
+        <p>Developed a digital logging application to efficiently manage and monitor student movement timestamps.</p>
+    </div>
+</div>
+
+<div id="contact" class="content">
+    <h2>Let's Collaborate</h2>
+    <p>Always looking for interesting projects and hardware challenges.</p>
+    <p><b>Email:</b> <a href="mailto:sohannale603@gmail.com">sohannale603@gmail.com</a></p>
+    <p><b>Phone:</b> +91 73502 25512</p>
+</div>
+
+<script>
+function showTab(tabId) {
+    var contents = document.getElementsByClassName("content");
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("active");
+    }
+    document.getElementById(tabId).classList.add("active");
+    window.scrollTo(0,0); 
+}
+</script>
+
+</body>
+</html>
