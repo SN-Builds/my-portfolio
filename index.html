@@ -10,7 +10,6 @@
             --bg: #000; 
             --fg: #fff; 
             --s: #666; 
-            --active-red: #ff0000; /* New red color variable */
         }
 
         * { 
@@ -33,7 +32,7 @@
             padding: 24px 40px; 
             position: sticky; 
             top: 0; 
-            background: #FF0000; 
+            background: #000; 
             z-index: 1000; 
             border-bottom: 1px solid #1a1a1a; 
         }
@@ -51,14 +50,9 @@
             text-transform: uppercase; 
             letter-spacing: 2px;
             margin: 0 12px; 
-            transition: color 0.3s ease;
         }
 
-        /* Change color to red on hover and when active */
-        nav button:hover, 
-        nav button.active-link { 
-            color: var(--active-red); 
-        }
+        nav button:hover { color: var(--fg); }
 
         /* --- Layout Sections --- */
         section { 
@@ -118,10 +112,10 @@
 
     <nav>
         <div class="nav-container">
-            <button onclick="tab('home', this)" class="active-link">Home</button>
-            <button onclick="tab('about', this)">About</button>
-            <button onclick="tab('projects', this)">Projects</button>
-            <button onclick="tab('contact', this)">Contact</button>
+            <button onclick="tab('home')">Home</button>
+            <button onclick="tab('about')">About</button>
+            <button onclick="tab('projects')">Projects</button>
+            <button onclick="tab('contact')">Contact</button>
         </div>
     </nav>
 
@@ -206,19 +200,11 @@
     </section>
 
     <script>
-        function tab(id, btn) {
-            // Remove active class from all sections
+        function tab(id) {
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            
-            // Remove active class from all nav buttons
-            document.querySelectorAll('nav button').forEach(b => b.classList.remove('active-link'));
-
-            // Add active class to target section
             const target = document.getElementById(id);
             if (target) {
                 target.classList.add('active');
-                // Add active color to the clicked button
-                btn.classList.add('active-link');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
