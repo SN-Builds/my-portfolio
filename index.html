@@ -15,7 +15,7 @@
 
         * { 
             box-sizing: border-box; 
-            font-family: 'DM Sans', system-ui, -apple-system, sans-serif; 
+            font-family: system-ui, -apple-system, sans-serif; 
         }
 
         body { 
@@ -23,7 +23,6 @@
             background: var(--bg); 
             color: var(--fg); 
             line-height: 1.6; 
-            -webkit-font-smoothing: antialiased;
         }
 
         /* --- Navigation --- */
@@ -34,16 +33,12 @@
             padding: 24px 40px; 
             position: sticky; 
             top: 0; 
-            background: rgba(0, 0, 0, 0.9); 
+            background: #000; 
             z-index: 1000; 
             border-bottom: 1px solid #1a1a1a; 
         }
 
-        .logo { 
-            color: var(--a); 
-            font-weight: bold; 
-            font-size: 1.4rem;
-        }
+        .logo { color: var(--a); font-weight: bold; font-size: 1.4rem; }
 
         nav div button { 
             background: none; 
@@ -54,172 +49,69 @@
             text-transform: uppercase; 
             letter-spacing: 2px;
             margin-left: 24px; 
-            transition: 0.2s;
         }
 
-        nav div button:hover { 
-            color: var(--a); 
-        }
+        nav div button:hover { color: var(--fg); }
 
-        /* --- Layout Sections --- */
+        /* --- Sections --- */
         section { 
             display: none; 
-            padding: 120px 40px; 
+            padding: 100px 40px; 
             max-width: 1100px; 
             margin: 0 auto; 
             min-height: 90vh; 
         }
 
-        section.active { 
-            display: block; 
-        }
+        section.active { display: block; }
 
-        h1, h2, h3 { 
-            text-transform: uppercase; 
-            letter-spacing: -1px; 
-            margin: 0; 
-        }
+        h1, h2, h3 { text-transform: uppercase; letter-spacing: -1px; margin: 0; }
+        h1 { font-size: clamp(3rem, 10vw, 6rem); line-height: 0.9; }
+        h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 40px; }
 
-        h1 { 
-            font-size: clamp(3rem, 10vw, 6rem); 
-            line-height: 0.9;
-        }
-
-        h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 50px;
-            color: var(--fg);
-        }
-
-        .s-text { 
-            color: var(--s); 
-            font-size: 14px; 
-            letter-spacing: 1px;
-        }
-
-        /* --- Home/Hero --- */
-        .hero-flex {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-        }
-
+        /* --- Home --- */
         .profile-img { 
-            width: 160px; 
-            height: 160px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            border: 2px solid var(--a); 
-            filter: grayscale(100%); 
+            width: 160px; height: 160px; border-radius: 50%; 
+            object-fit: cover; border: 2px solid var(--a); 
+            margin-bottom: 30px; filter: grayscale(100%); 
         }
 
-        /* --- Grids & Cards --- */
+        /* --- About --- */
+        .lead { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.3; margin-bottom: 20px; font-weight: 300; }
+        .highlight-box { margin: 30px 0; border-left: 2px solid var(--a); padding-left: 20px; }
+
+        /* --- Grid --- */
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 60px; 
-            margin-top: 60px; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px; 
+            margin-top: 50px; 
         }
 
-        .card { 
-            border-top: 1px solid #1a1a1a; 
-            padding-top: 30px; 
-            transition: 0.3s;
-        }
+        .card { border-top: 1px solid #1a1a1a; padding-top: 20px; }
+        .card h3 { margin: 10px 0; font-size: 1.3rem; letter-spacing: 0; }
+        .card p, .s-text { color: var(--s); font-size: 14px; }
 
-        .card:hover {
-            border-color: var(--a);
-        }
-
-        .card h3 {
-            margin: 15px 0;
-            font-size: 1.5rem;
-            letter-spacing: 0;
-        }
-
-        .card p {
-            color: var(--s);
-            font-size: 15px;
-            line-height: 1.8;
-        }
-
-        /* --- About Content --- */
-        .lead {
-            font-size: clamp(1.5rem, 3vw, 2.2rem);
-            line-height: 1.3;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .highlight-box {
-            margin: 40px 0;
-            border-left: 2px solid var(--a);
-            padding-left: 24px;
-        }
-
-        /* --- UI Elements --- */
+        /* --- UI --- */
         .btn { 
-            display: inline-block; 
-            border: 1px solid var(--a); 
-            color: var(--a); 
-            padding: 14px 40px; 
-            text-decoration: none; 
-            font-size: 11px; 
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-top: 40px; 
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-
-        .btn:hover {
-            background: var(--a);
-            color: var(--bg);
+            display: inline-block; border: 1px solid var(--a); color: var(--a); 
+            padding: 12px 35px; text-decoration: none; font-size: 11px; 
+            font-weight: bold; letter-spacing: 1px; margin-top: 30px; 
+            text-transform: uppercase; 
         }
 
         /* --- Forms --- */
-        form {
-            margin-top: 40px;
-            width: 100%;
-        }
-
         input, textarea { 
-            width: 100%; 
-            background: none; 
-            border: none; 
-            border-bottom: 1px solid #222; 
-            color: #fff; 
-            padding: 16px 0; 
-            margin-bottom: 30px; 
-            outline: none; 
-            font-size: 15px;
-            transition: 0.3s;
-        }
-
-        input:focus, textarea:focus {
-            border-color: var(--a);
+            width: 100%; background: none; border: none; 
+            border-bottom: 1px solid #222; color: #fff; 
+            padding: 15px 0; margin-bottom: 25px; outline: none; 
         }
 
         button[type="submit"] { 
-            background: var(--a); 
-            border: none; 
-            padding: 14px 50px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.2s;
+            background: var(--a); border: none; padding: 12px 40px; 
+            font-weight: bold; cursor: pointer; text-transform: uppercase; 
         }
 
-        button[type="submit"]:hover {
-            opacity: 0.85;
-        }
-
-        @media (max-width: 800px) {
-            nav { padding: 20px; }
-            nav div button { margin-left: 12px; font-size: 10px; }
-            section { padding: 80px 24px; }
-        }
+        @media (max-width: 800px) { section { padding: 80px 20px; } }
     </style>
 </head>
 <body>
@@ -234,95 +126,71 @@
         </div>
     </nav>
 
-    <!-- HOME SECTION -->
     <section id="home" class="active">
-        <div class="hero-flex">
-            <img src="your-photo.jpg" alt="Sohan Nale" class="profile-img">
-            <div>
-                <h1>Sohan<br>Nale</h1>
-                <p class="s-text" style="margin-top: 24px; text-transform: uppercase;">
-                    Electronics & Telecommunication<br>
-                    Embedded Systems & IoT
-                </p>
-                <a href="https://drive.google.com/file/d/1M7vM88KBSl25Bqe6lRIIroJo8MWIdKm3/view?usp=drivesdk" 
-                   target="_blank" class="btn">Download CV</a>
-            </div>
-        </div>
+        <img src="your-photo.jpg" alt="Sohan Nale" class="profile-img">
+        <h1>Sohan<br>Nale</h1>
+        <p class="s-text" style="margin-top: 20px; text-transform: uppercase;">
+            Electronics & Telecommunication<br>Embedded Systems & IoT
+        </p>
+        <a href="https://drive.google.com/file/d/1M7vM88KBSl25Bqe6lRIIroJo8MWIdKm3/view?usp=drivesdk" target="_blank" class="btn">Download CV</a>
     </section>
 
-    <!-- ABOUT SECTION -->
     <section id="about">
         <h2>Expertise</h2>
         <p class="lead">Bridging abstract logic and tangible hardware.</p>
-        
-        <p style="max-width: 650px; color: var(--s);">
-            I am an ENTC student at MITAOE focusing on physical computing and hardware innovation. 
+        <p class="s-text" style="max-width: 600px;">
+            I am an ENTC student at MIT Academy of Engineering (MITAOE) focusing on physical computing and hardware innovation. 
             I specialize in embedded systems and circuit design for reliable IoT solutions.
         </p>
-
         <div class="highlight-box">
             <p style="margin: 0; max-width: 550px;">
                 <b>Hardware Engineering:</b> I specialize in engineering full signal paths and the end-to-end design, prototyping, and assembly of custom-etched PCBs.
             </p>
         </div>
-
         <div class="grid">
             <div class="card">
-                <span class="s-text">SKILLS 01</span>
                 <h3>EDA & Simulation</h3>
                 <p>Proteus, KiCAD, Multisim</p>
             </div>
             <div class="card">
-                <span class="s-text">SKILLS 02</span>
                 <h3>Firmware & IoT</h3>
                 <p>Python (NumPy, Pandas), C, ESP32, Arduino</p>
             </div>
             <div class="card">
-                <span class="s-text">SKILLS 03</span>
                 <h3>Hardware R&D</h3>
                 <p>PCB Design, Circuit Analysis, Signal Path Engineering</p>
             </div>
         </div>
     </section>
 
-    <!-- PROJECTS SECTION -->
     <section id="projects">
         <h2>Projects</h2>
         <div class="grid">
-            <article class="card">
-                <span class="s-text">PROJECT 01</span>
+            <div class="card">
                 <h3>PIR Motion Alarm</h3>
                 <p>A real-time security system detecting infrared signatures of human movement using a logic-controlled circuit.</p>
-            </article>
-
-            <article class="card">
-                <span class="s-text">PROJECT 02</span>
+            </div>
+            <div class="card">
                 <h3>Gesture Control</h3>
                 <p>Engineered an ESP32-based transmitter translating hand gestures into wireless control signals for system attachments.</p>
-            </article>
-
-            <article class="card">
-                <span class="s-text">PROJECT 03</span>
+            </div>
+            <div class="card">
                 <h3>SwiftPass App</h3>
                 <p>Digital hostel management application using QR code movement tracking and real-time data logging.</p>
-            </article>
-
-            <article class="card">
-                <span class="s-text">PROJECT 04</span>
+            </div>
+            <div class="card">
                 <h3>Rain-Sensing Automation</h3>
                 <p>Automated moisture-sensing system using Arduino to trigger mechanical responses upon detecting rainfall.</p>
-            </article>
+            </div>
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
     <section id="contact">
         <h2>Connect</h2>
-        <div style="margin-bottom: 60px;">
+        <div style="margin-bottom: 40px;">
             <p style="margin: 5px 0;">sohannale603@gmail.com</p>
             <p style="margin: 5px 0;">+91 73502 25512</p>
         </div>
-
         <form onsubmit="return false;">
             <input type="text" placeholder="Name" required>
             <input type="email" placeholder="Email" required>
@@ -333,18 +201,13 @@
 
     <script>
         function tab(id) {
-            // Remove active class from all sections
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            
-            // Add active class to target section
             const target = document.getElementById(id);
             if (target) {
                 target.classList.add('active');
-                // Smooth scroll to top of page when changing tabs
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
     </script>
-
 </body>
 </html>
